@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  userId     Int        @id @unique @default(autoincrement())
+  userName   String     @db.VarChar(255)
+  email      String     @unique @db.VarChar(255)
+  password   String     @db.VarChar(255)
+  phone      String     @db.VarChar(255)
+  birthday   DateTime   @db.Date
+  avatar     String?    @db.VarChar(255)
+  gender     String     @default("MALE") @db.VarChar(255)
+  role       String     @default("USER") @db.VarChar(255)
+  comments   Comment[]
+  bookRooms  BookRoom[]
+  roomsOwned Room[]
+}
+
+model Room {
+  roomId            Int        @id @unique @default(autoincrement())
+  roomName          String     @db.VarChar(255)
+  description       String     @db.VarChar(255)
+  price             Int
+  totalBedrooms     Int
+  totalBeds         Int
+  totalBathrooms    Int
+  hasWashingMachine Boolean
+  hasIron           Boolean
+  hasTv             Boolean
+  hasAirCon         Boolean
+  hasWifi           Boolean
+  hasKitchen        Boolean
+  hasParkingLot     Boolean
+  hasPool           Boolean
+  roomImage         String?    @unique @db.VarChar(255)
+  comments          Comment[]
+  bookRooms         BookRoom[]
+  ownerId           Int
+  owner             User       @relation(fields: [ownerId], references: [userId])
+  locationId        Int
+  location          Address    @relation(fields: [locationId], references: [addressId])
+}
+
+model BookRoom {
+  bookRoomId   Int      @id @unique @default(autoincrement())
+  checkinDate  DateTime @db.Date
+  checkoutDate DateTime @db.Date
+  totalGuests  Int
+  userBookId   Int
+  roomBookedId Int
+  userBook     User     @relation(fields: [userBookId], references: [userId])
+  roomBooked   Room     @relation(fields: [roomBookedId], references: [roomId])
+}
+
+model Comment {
+  commentId       Int       @id @unique @default(autoincrement())
+  content         String    @db.VarChar(255)
+  commentedAt     DateTime? @default(now())
+  userCommentId   Int
+  roomCommentedId Int
+  userComment     User      @relation(fields: [userCommentId], references: [userId])
+  roomCommented   Room      @relation(fields: [roomCommentedId], references: [roomId])
+}
+
+model Address {
+  addressId    Int     @id @unique @default(autoincrement())
+  addressName  String  @db.VarChar(255)
+  province     String  @db.VarChar(255)
+  country      String  @db.VarChar(255)
+  addressImage String? @unique @db.VarChar(255)
+  rooms        Room[]
+}

@@ -1,0 +1,1253 @@
+{
+	"info": {
+		"_postman_id": "97ecc7e3-c035-4063-b4b8-5acf3123a874",
+		"name": "db_airbnb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23648979"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"d\",\r\n    \"email\":\"d@a.a\",\r\n    \"password\":\"abcd\",\r\n    \"phone\":\"0311111114\",\r\n    \"birthday\":\"2000-01-04\",\r\n    \"gender\":\"FEMALE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/auth/register",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"d@a.a\",\r\n    \"password\":\"abcd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/auth/login",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "address",
+			"item": [
+				{
+					"name": "getAllAddresses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMCwiaWF0IjoxNjgwNTA5NDkzLCJleHAiOjE2ODA1MTAwOTN9.7uXY4CrDIsIgNn2VEasqjz0Otb3_n-GHUuy7eZX7S5s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/addresses",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAddressesByNameSearchedPagination",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMCwiaWF0IjoxNjgwNTA5NDkzLCJleHAiOjE2ODA1MTAwOTN9.7uXY4CrDIsIgNn2VEasqjz0Otb3_n-GHUuy7eZX7S5s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/addresses/search/pagination?name=ad&page=1&size=2",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"addresses",
+								"search",
+								"pagination"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "ad"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAddressDetail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMCwiaWF0IjoxNjgwNTA5NDkzLCJleHAiOjE2ODA1MTAwOTN9.7uXY4CrDIsIgNn2VEasqjz0Otb3_n-GHUuy7eZX7S5s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/addresses/11",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"addresses",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMCwiaWF0IjoxNjgwNTA5NDkzLCJleHAiOjE2ODA1MTAwOTN9.7uXY4CrDIsIgNn2VEasqjz0Otb3_n-GHUuy7eZX7S5s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"contentType": "",
+									"type": "file",
+									"src": "/C:/Users/VyL/Downloads/address1.jpg"
+								},
+								{
+									"key": "addressName",
+									"value": "address1",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "province",
+									"value": "province1",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "country1",
+									"contentType": "application/json",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/addresses?folder=address",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"addresses"
+							],
+							"query": [
+								{
+									"key": "folder",
+									"value": "address"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadAddressImage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMCwiaWF0IjoxNjgwNTA5NDkzLCJleHAiOjE2ODA1MTAwOTN9.7uXY4CrDIsIgNn2VEasqjz0Otb3_n-GHUuy7eZX7S5s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/VyL/Downloads/address1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/addresses/11/upload-address-image?folder=address",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"addresses",
+								"11",
+								"upload-address-image"
+							],
+							"query": [
+								{
+									"key": "folder",
+									"value": "address"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAddressDetail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMCwiaWF0IjoxNjgwNTA5NDkzLCJleHAiOjE2ODA1MTAwOTN9.7uXY4CrDIsIgNn2VEasqjz0Otb3_n-GHUuy7eZX7S5s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"addressName\": \"address11\",\r\n    \"province\": \"province11\",\r\n    \"country\": \"country11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/addresses/11",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"addresses",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMCwiaWF0IjoxNjgwNTA5NDkzLCJleHAiOjE2ODA1MTAwOTN9.7uXY4CrDIsIgNn2VEasqjz0Otb3_n-GHUuy7eZX7S5s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/addresses/11",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"addresses",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "room",
+			"item": [
+				{
+					"name": "getAllRooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxLCJpYXQiOjE2ODA1MTAxMTQsImV4cCI6MTY4MDUxMDcxNH0.V1LZxYxGEav6FC_iaIDwf_SquYZaujWvoU38zMmW2EI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/rooms",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRoomsByLocation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMCwiaWF0IjoxNjgwNTA5NDkzLCJleHAiOjE2ODA1MTAwOTN9.7uXY4CrDIsIgNn2VEasqjz0Otb3_n-GHUuy7eZX7S5s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/rooms/location?locationId=2",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"rooms",
+								"location"
+							],
+							"query": [
+								{
+									"key": "locationId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRoomsByNameSearchedPagination",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMCwiaWF0IjoxNjgwNTA5NDkzLCJleHAiOjE2ODA1MTAwOTN9.7uXY4CrDIsIgNn2VEasqjz0Otb3_n-GHUuy7eZX7S5s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/rooms/search/pagination?name=r&page=1&size=2",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"rooms",
+								"search",
+								"pagination"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "r"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRoomDetail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMSwiaWF0IjoxNjgwNTEwNTEwLCJleHAiOjE2ODA1MTExMTB9.4YhD1Qoxo_XuQonefGip4Ek-CtOLp_Py6tlW3Gu0n68",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/rooms/10",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"rooms",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createRoom",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMSwiaWF0IjoxNjgwNTEwNTEwLCJleHAiOjE2ODA1MTExMTB9.4YhD1Qoxo_XuQonefGip4Ek-CtOLp_Py6tlW3Gu0n68",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roomName\":\"roomName\",\r\n    \"description\":\"description\",\r\n    \"price\":10,\r\n    \"totalBedrooms\":1,\r\n    \"totalBeds\":1,\r\n    \"totalBathrooms\":1,\r\n    \"hasWashingMachine\":false,\r\n    \"hasIron\":false,\r\n    \"hasTv\":false,\r\n    \"hasAirCon\":false,\r\n    \"hasWifi\":false,\r\n    \"hasKitchen\":false,\r\n    \"hasParkingLot\":false,\r\n    \"hasPool\":false,\r\n    \"locationId\":6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/rooms",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadRoomImage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMCwiaWF0IjoxNjgwNTA5NDkzLCJleHAiOjE2ODA1MTAwOTN9.7uXY4CrDIsIgNn2VEasqjz0Otb3_n-GHUuy7eZX7S5s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/VyL/Downloads/room1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/rooms/9/upload-room-image?folder=room",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"rooms",
+								"9",
+								"upload-room-image"
+							],
+							"query": [
+								{
+									"key": "folder",
+									"value": "room"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRoomDetail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMSwiaWF0IjoxNjgwNTEwNTEwLCJleHAiOjE2ODA1MTExMTB9.4YhD1Qoxo_XuQonefGip4Ek-CtOLp_Py6tlW3Gu0n68",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roomName\":\"roomName10\",\r\n    \"description\":\"description10\",\r\n    \"price\":10,\r\n    \"totalBedrooms\":3,\r\n    \"totalBeds\":1,\r\n    \"totalBathrooms\":1,\r\n    \"hasWashingMachine\":false,\r\n    \"hasIron\":false,\r\n    \"hasTv\":false,\r\n    \"hasAirCon\":false,\r\n    \"hasWifi\":false,\r\n    \"hasKitchen\":false,\r\n    \"hasParkingLot\":false,\r\n    \"hasPool\":false,\r\n    \"locationId\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/rooms/10",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"rooms",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRoom",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMSwiaWF0IjoxNjgwNTEwNTEwLCJleHAiOjE2ODA1MTExMTB9.4YhD1Qoxo_XuQonefGip4Ek-CtOLp_Py6tlW3Gu0n68",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/rooms/10",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"rooms",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "getAllUsers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMSwiaWF0IjoxNjgwNTEwNTEwLCJleHAiOjE2ODA1MTExMTB9.4YhD1Qoxo_XuQonefGip4Ek-CtOLp_Py6tlW3Gu0n68",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/users",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserDetail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMSwiaWF0IjoxNjgwNTEwNTEwLCJleHAiOjE2ODA1MTExMTB9.4YhD1Qoxo_XuQonefGip4Ek-CtOLp_Py6tlW3Gu0n68",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/users/3",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUsersByNameSearched",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMSwiaWF0IjoxNjgwNTEwNTEwLCJleHAiOjE2ODA1MTExMTB9.4YhD1Qoxo_XuQonefGip4Ek-CtOLp_Py6tlW3Gu0n68",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/users/search?userName=b",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"users",
+								"search"
+							],
+							"query": [
+								{
+									"key": "userName",
+									"value": "b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUsersByNameSearchedPagination",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMSwiaWF0IjoxNjgwNTEwNTEwLCJleHAiOjE2ODA1MTExMTB9.4YhD1Qoxo_XuQonefGip4Ek-CtOLp_Py6tlW3Gu0n68",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/users/search/pagination?name=a&page=1&size=2",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"users",
+								"search",
+								"pagination"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "a"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadUserAvatar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMSwiaWF0IjoxNjgwNTEwNTEwLCJleHAiOjE2ODA1MTExMTB9.4YhD1Qoxo_XuQonefGip4Ek-CtOLp_Py6tlW3Gu0n68",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/VyL/Downloads/avatar1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/users/11/upload-avatar?folder=avatar",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"users",
+								"11",
+								"upload-avatar"
+							],
+							"query": [
+								{
+									"key": "folder",
+									"value": "avatar"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUserDetail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMSwiaWF0IjoxNjgwNTEwNTEwLCJleHAiOjE2ODA1MTExMTB9.4YhD1Qoxo_XuQonefGip4Ek-CtOLp_Py6tlW3Gu0n68",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"dd\",\r\n    \"email\":\"d@a.a\",\r\n    \"phone\":\"0311111114\",\r\n    \"birthday\":\"2000-01-04\",\r\n    \"gender\":\"FEMALE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/users/11",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"users",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxMSwiaWF0IjoxNjgwNTEwNTEwLCJleHAiOjE2ODA1MTExMTB9.4YhD1Qoxo_XuQonefGip4Ek-CtOLp_Py6tlW3Gu0n68",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/users/11",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"users",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bookroom",
+			"item": [
+				{
+					"name": "getAllBookRooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxLCJpYXQiOjE2ODA1MTA4MjIsImV4cCI6MTY4MDUxMTQyMn0.IB4Yb2c22uTq6OfjqrQHxjg0DGV71K7SESffVOkKXW0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/bookrooms",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"bookrooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBookRoomsByUserBook",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxLCJpYXQiOjE2ODA1MTA4MjIsImV4cCI6MTY4MDUxMTQyMn0.IB4Yb2c22uTq6OfjqrQHxjg0DGV71K7SESffVOkKXW0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/bookrooms/user-book/2",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"bookrooms",
+								"user-book",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBookRoomDetail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxLCJpYXQiOjE2ODA1MTA4MjIsImV4cCI6MTY4MDUxMTQyMn0.IB4Yb2c22uTq6OfjqrQHxjg0DGV71K7SESffVOkKXW0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/bookrooms/10",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"bookrooms",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createBookRoom",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxLCJpYXQiOjE2ODA1MTA4MjIsImV4cCI6MTY4MDUxMTQyMn0.IB4Yb2c22uTq6OfjqrQHxjg0DGV71K7SESffVOkKXW0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"checkinDate\":\"2023-04-3\",\r\n    \"checkoutDate\":\"2023-04-4\",\r\n    \"totalGuests\":2,\r\n    \"roomBookedId\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/bookrooms",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"bookrooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateBookRoomDetail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxLCJpYXQiOjE2ODA1MTA4MjIsImV4cCI6MTY4MDUxMTQyMn0.IB4Yb2c22uTq6OfjqrQHxjg0DGV71K7SESffVOkKXW0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"checkinDate\":\"2023-04-4\",\r\n    \"checkoutDate\":\"2023-04-5\",\r\n    \"totalGuests\":1,\r\n    \"roomBookedId\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/bookrooms/10",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"bookrooms",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteBookRoom",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxLCJpYXQiOjE2ODA1MTA4MjIsImV4cCI6MTY4MDUxMTQyMn0.IB4Yb2c22uTq6OfjqrQHxjg0DGV71K7SESffVOkKXW0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/bookrooms/10",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"bookrooms",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "getAllComments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxLCJpYXQiOjE2ODA1MTA4MjIsImV4cCI6MTY4MDUxMTQyMn0.IB4Yb2c22uTq6OfjqrQHxjg0DGV71K7SESffVOkKXW0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/comments",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCommentsByRoom",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxLCJpYXQiOjE2ODA1MTA4MjIsImV4cCI6MTY4MDUxMTQyMn0.IB4Yb2c22uTq6OfjqrQHxjg0DGV71K7SESffVOkKXW0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/comments/room-commented/5",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"comments",
+								"room-commented",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxLCJpYXQiOjE2ODA1MTA4MjIsImV4cCI6MTY4MDUxMTQyMn0.IB4Yb2c22uTq6OfjqrQHxjg0DGV71K7SESffVOkKXW0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"very good!!\",\r\n    \"roomCommentedId\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/comments",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCommentDetail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxLCJpYXQiOjE2ODA1MTA4MjIsImV4cCI6MTY4MDUxMTQyMn0.IB4Yb2c22uTq6OfjqrQHxjg0DGV71K7SESffVOkKXW0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"very good!!!!!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/comments/10",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"comments",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoxLCJpYXQiOjE2ODA1MTA4MjIsImV4cCI6MTY4MDUxMTQyMn0.IB4Yb2c22uTq6OfjqrQHxjg0DGV71K7SESffVOkKXW0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/comments/10",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"comments",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "localhost:4000/api",
+			"type": "string"
+		}
+	]
+}
